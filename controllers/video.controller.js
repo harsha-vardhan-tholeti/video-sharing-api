@@ -1,5 +1,5 @@
-const Video = require("../models/video.model");
 const User = require("../models/user.model");
+const Video = require("../models/video.model");
 const errorHandler = require("../utils/errorHandler");
 
 const addVideo = async (req, res, next) => {
@@ -80,13 +80,13 @@ const trendingVideos = async (req, res, next) => {
 
 const randomVideos = async (req, res, next) => {
   try {
-    const videos = await Video.aggregate([{ $sample: { size: 40 } }]);
-
+    const videos = await Video.aggregate([{ $sample: { size: 20 } }]);
     res.status(200).json(videos);
   } catch (error) {
     next(error);
   }
 };
+
 const subscribedVideos = async (req, res, next) => {
   try {
     const user = await User.findById(req.user.id);

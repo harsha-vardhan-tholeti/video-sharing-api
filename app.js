@@ -5,11 +5,20 @@ const VideoRouter = require("./routes/videos.routes");
 const CommentRouter = require("./routes/comments.routes");
 const errorMiddleware = require("./middlewares/errorMiddleware");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
+const morgan = require("morgan");
 
 const app = express();
 
+app.use(morgan("tiny"));
 app.use(express.json());
 app.use(cookieParser());
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 
 // Routes
 app.use("/api/v1/auth", AuthRouter);

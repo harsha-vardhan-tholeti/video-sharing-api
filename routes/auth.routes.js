@@ -1,5 +1,10 @@
 const express = require("express");
-const { signUp, signIn } = require("../controllers/auth.controller");
+const {
+  signUp,
+  signIn,
+  signOut,
+  googleAuth,
+} = require("../controllers/auth.controller");
 
 const router = express.Router();
 
@@ -9,7 +14,10 @@ router.post("/signUp", signUp);
 // sign in
 router.post("/signIn", signIn);
 
+// sign out
+router.post("/signOut", signOut);
+
 // google auth
-router.post("/googleAuth");
+router.post("/google", googleAuth);
 
 module.exports = router;
