@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://video-sharing-ui.vercel.app/"],
+    origin: "https://video-sharing-ui.vercel.app/",
     credentials: true,
   })
 );
