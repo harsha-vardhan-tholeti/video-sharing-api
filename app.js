@@ -28,10 +28,6 @@ app.use(
   })
 );
 
-app.use("/", (req, res) => {
-  res.send("Hi");
-});
-
 // Routes
 app.use("/api/v1/auth", AuthRouter);
 app.use("/api/v1/users", UserRouter);
