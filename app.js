@@ -23,7 +23,6 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "https://video-sharing-ui.vercel.app/",
     credentials: true,
   })
 );
