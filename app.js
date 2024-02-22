@@ -23,6 +23,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
+    origin: "https://vs-ui.onrender.com",
     credentials: true,
   })
 );
