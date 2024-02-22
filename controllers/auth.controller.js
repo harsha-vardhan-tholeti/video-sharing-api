@@ -36,10 +36,16 @@ const signIn = async (req, res, next) => {
 
     const { password, ...others } = user._doc;
 
-    res.cookie("access_token", token).status(200).json({
-      status: "success",
-      data: others,
-    });
+    res
+      .cookie("access_token", token, {
+        httpOnly: true,
+        secure: true,
+      })
+      .status(200)
+      .json({
+        status: "success",
+        data: others,
+      });
   } catch (error) {
     return next(error);
   }
