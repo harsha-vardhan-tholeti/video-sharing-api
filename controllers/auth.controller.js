@@ -40,6 +40,7 @@ const signIn = async (req, res, next) => {
       .cookie("access_token", token, {
         httpOnly: true,
         secure: true,
+        sameSite: false,
       })
       .status(200)
       .json({
