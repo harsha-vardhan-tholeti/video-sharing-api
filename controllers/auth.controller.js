@@ -38,9 +38,9 @@ const signIn = async (req, res, next) => {
 
     res
       .cookie("access_token", token, {
-        httpOnly: true,
+        maxAge: 1000 * 60 * 60,
         secure: true,
-        sameSite: false,
+        sameSite: "none",
       })
       .status(200)
       .json({
